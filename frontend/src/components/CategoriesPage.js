@@ -1,0 +1,190 @@
+import React, { Component } from "react";
+import { gql } from "@apollo/client";
+import { withApollo } from '@apollo/react-hoc';
+import { Link } from "react-router-dom";
+
+import iconCart from '../images/icon.png';
+
+class CategoryPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      products: [],
+      categoryId: this.getCategoryId(),
+      categoryName: '' // Added state variable to hold the category name
+    };
+  }
+
+ 
+  FETCH_PRODUCTS = gql`
+  query {
+    products {
+      id
+      name
+      description
+      in_stock
+      brand
+      price
+      attributes
+      image
+      category_id
+    }
+    categories {
+      id
+      name
+    }
+  }
+`;
+FETCH_CATEGORY_NAME = gql`
+query categoryName($categoryId: ID!) {
+  category(id: $categoryId) {
+    name
+  }
+}
+`;
+  FETCH_PRODUCTS_BY_CATEGORY = gql`
+    query productsByCategory($categoryId: ID!) {
+      productsByCategory(category_id: $categoryId) {
+        id
+        name
+        description
+        in_stock
+        brand
+        price
+        attributes
+        image
+        category_id
+      }
+    }
+  `;
+
+  
+
+  fetchProductsByCategory = async (categoryId) => {
+    try {
+      let response;
+      if (categoryId === '1') {
+        // Fetch all products
+        response = await this.props.client.query({
+          query: gql`
+            query {
+              allProducts {
+                id
+                name
+                description
+                in_stock
+                brand
+                price
+                attributes
+                image
+                category_id
+              }
+            }
+          `
+        });
+      } else {
+        // Fetch products by category
+        response = await this.props.client.query({
+          query: this.FETCH_PRODUCTS_BY_CATEGORY,
+          variables: { categoryId }
+        });
+      }
+      const products = response.data.productsByCategory || response.data.allProducts;
+      this.setState({ products, categoryId });
+    } catch (error) {
+      console.log('Error fetching products:', error);
+    }
+  };
+
+  getCategoryId = () => {
+    const path = window.location.pathname;
+    const match = path.match(/\/category\/([^\/]+)/);
+    return match ? match[1] : '1'; // Default to '1' if no category ID is found
+  }
+  
+  fetchProducts = async () => {
+    try {
+      const response = await this.props.client.query({
+        query: this.FETCH_PRODUCTS
+      });
+      const products = response.data.products;
+      this.setState({ products });
+    } catch (error) {
+      console.log('Error fetching products:', error);
+    }
+  };
+
+
+  fetchCategoryName = async (categoryId) => {
+    try {
+      const response = await this.props.client.query({
+        query: this.FETCH_CATEGORY_NAME,
+        variables: { categoryId }
+        
+      });
+      const categoryName = response.data.category ? response.data.category.name : '';
+      this.setState({ categoryName });
+      console.log(categoryName,'categoryyyyyyyyyy');
+    } catch (error) {
+      console.log('Error fetching category name:', error);
+    }
+  };
+  componentDidMount() {
+    const categoryId = this.getCategoryId();
+    this.setState({ categoryId }, () => {
+      if (categoryId === '1') {
+        this.fetchProducts(); // Fetch all products if category ID is '1'
+      } else {
+        this.fetchProductsByCategory(categoryId);
+        this.fetchCategoryName(categoryId); // Fetch category name
+      }
+    });
+  }
+  
+  handleProductBoxClick = (categoryId) => {
+    this.setState({ categoryId }, () => {
+
+      if (categoryId !== '1') {
+        this.setState({ activeCategory: categoryId });
+      }
+      this.fetchProductsByCategory(categoryId);
+    });
+  }
+
+
+  render() {
+    const { products, categoryName } = this.state;
+
+    return (
+      <div className="category-page">
+
+    <h2>{categoryName}</h2>
+    <div className="products-container">
+        <div className="products-wrapper">
+          {products.map(product => (
+            <div className="product-box" key={product.id}>
+              {product.in_stock ? (
+                <Link to={`/product/${product.id}?categoryId=${product.category_id}`}>
+                  <img className='product-image' src={JSON.parse(product.image)[0]} alt={product.name} />
+                </Link>
+              ) : (
+                <img className='product-image' src={JSON.parse(product.image)[0]} alt={product.name} />
+              )}
+              <div className="product-details">
+                <h3 className="product-name">{product.name}</h3>
+                <div className="product-price"> ${product.price}</div>
+              </div>
+              {!product.in_stock && (
+                <div className="out-of-stock">OUT OF STOCK</div>
+              )}
+              <img className="icon-image" src={iconCart} alt="Icon" />
+            </div>
+          ))}
+        </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default withApollo(CategoryPage);
