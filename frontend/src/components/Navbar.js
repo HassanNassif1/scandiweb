@@ -16,30 +16,24 @@ const override = css`
   border-color: green;
 `;
 const ProductAttributes = ({ attributes, selectedColor, selectedSize, handleColorClick, handleSizeClick }) => {
-  // Function to determine attribute priority
   const getPriority = (name) => {
     if (name === "Capacity") return 1;
     if (name === "Color") return 2;
     if (name === "Size") return 3;
-    return 4; // Default priority for other attributes
+    return 4;
   };
 
-  // Sort attributes based on the priority
   const sortedAttributes = attributes.slice().sort((a, b) => getPriority(a.name) - getPriority(b.name));
-
-  // Create a set to track which attributes have been rendered
   const renderedAttributes = new Set();
 
   return (
     <div className="product-attributes">
       <div className="attribute-container">
         {sortedAttributes.map((attribute, index) => {
-          // Skip rendering if this attribute type has already been rendered
           if (renderedAttributes.has(attribute.name)) {
             return null;
           }
 
-          // Add the attribute type to the set of rendered attributes
           renderedAttributes.add(attribute.name);
 
           return (
@@ -96,6 +90,8 @@ const ProductAttributes = ({ attributes, selectedColor, selectedSize, handleColo
   );
 };
 
+
+
 const adjustCartHeight = () => {
   const cartContainer = document.querySelector('.cart-box');
   if (cartContainer) {
@@ -143,6 +139,7 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loadingCart: false,
       categories: [],
       isPlaceOrderDisabled: false,
       isCartOpen: false,
@@ -154,7 +151,42 @@ class Navbar extends Component {
       cartItems: [],
       isLoadingCategories: false
     };
+    // Bind methods if not using arrow functions
+    this.handleColorChange = this.handleColorChange.bind(this);
+    this.handleSizeChange = this.handleSizeChange.bind(this);
+    this.incrementQuantity = this.incrementQuantity.bind(this);
+    this.decrementQuantity = this.decrementQuantity.bind(this);
+  }
+  handleColorChange(item, newColor) {
+    let cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    let updatedCart = cartData.map(cartItem => {
+      if (cartItem.id === item.id && cartItem.selectedSize === item.selectedSize) {
+        return { ...cartItem, selectedColor: newColor };
+      }
+      return cartItem;
+    });
 
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    this.setState({ cartItems: updatedCart }, () => {
+      this.calculateCartTotal();
+      this.updateCartHeight();
+    });
+  }
+
+  handleSizeChange(item, newSize) {
+    let cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    let updatedCart = cartData.map(cartItem => {
+      if (cartItem.id === item.id && cartItem.selectedColor === item.selectedColor) {
+        return { ...cartItem, selectedSize: newSize };
+      }
+      return cartItem;
+    });
+
+    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    this.setState({ cartItems: updatedCart }, () => {
+      this.calculateCartTotal();
+      this.updateCartHeight();
+    });
   }
 
   FETCH_CATEGORIES = gql`
@@ -219,10 +251,20 @@ class Navbar extends Component {
   };
 
 
-  toggleCart = () => {
+  toggleCart = async () => {
+    this.setState({ loadingCart: true });
+  
+    // Simulate fetching or updating cart data
+    await new Promise(resolve => setTimeout(resolve, 500)); // Simulate delay
+
+    // Proceed to open or close the cart
     this.setState(prevState => ({
-      isCartOpen: !prevState.isCartOpen
+      isCartOpen: !prevState.isCartOpen,
+      loadingCart: false
     }));
+  
+    // If you want to reload the page (use with caution)
+    // window.location.reload(); // Uncomment if needed
   };
   calculateTotalPrice = () => {
     const cartData = JSON.parse(localStorage.getItem('cart'));
@@ -243,10 +285,19 @@ class Navbar extends Component {
       const cartData = JSON.parse(localStorage.getItem('cart'));
   
       if (!cartData || cartData.length === 0) {
-        console.log('No items in the cart');
+        toast.error('No items in the cart');
         return;
       }
   
+      // Check if any item is missing required attributes (color or size)
+      const hasMissingAttributes = cartData.some(item => !item.selectedColor && !item.selectedSize);
+  
+      if (hasMissingAttributes) {
+        toast.error('Please select both color and size for all items before placing the order.');
+        return;
+      }
+  
+      // Group items by name
       const groupedItems = cartData.reduce((acc, item) => {
         if (!acc[item.name]) {
           acc[item.name] = {
@@ -254,13 +305,17 @@ class Navbar extends Component {
             name: item.name,
             description: item.description,
             price: item.price,
-            quantity: 1,
+            quantity: 0,
             attributes: []
           };
         }
         acc[item.name].quantity += item.quantity || 1;
-        if (item.selectedColor || item.selectedSize) {
+  
+        // Ensure color and size are included in attributes
+        if (item.selectedColor) {
           acc[item.name].attributes.push({ name: 'Color', value: item.selectedColor });
+        }
+        if (item.selectedSize) {
           acc[item.name].attributes.push({ name: 'Size', value: item.selectedSize });
         }
   
@@ -275,6 +330,7 @@ class Navbar extends Component {
         return acc;
       }, {});
   
+      // Place order for each grouped item
       for (const itemName in groupedItems) {
         const item = groupedItems[itemName];
   
@@ -299,13 +355,16 @@ class Navbar extends Component {
   
       // Show toast message for success and disappear after timeout
       toast.success('Your Order has been saved successfully!', {
-        autoClose: 2000, // 3000 milliseconds (3 seconds)
+        autoClose: 2000, // 2000 milliseconds (2 seconds)
       });
   
     } catch (error) {
       console.error('Error placing order:', error);
+      toast.error('An error occurred while placing your order. Please try again.');
     }
   };
+  
+  
   
   
   
@@ -421,49 +480,50 @@ incrementQuantity = (item) => {
                   <p className='quantity-bag'>{parsedCartData.length} items</p>
                 </div>
                 <ul>
-                  {parsedCartData.map(item => (
-                    <div className='product-div' key={item.id}>
-                      <div className="product-cart-box">
-                        <img className='cart-item-image' src={JSON.parse(item.image)[0]} alt={item.name} />
-                        <div className="cart-item-details">
-                          <div className='cart-details-box'>
-                            <p className='product-name-cart'>{item.name}</p>
-                            <p className='product-price-cart'>${item.price}</p>
-                            {item.attributes && (
-                              <div>
-                                <ProductAttributes
-                                  attributes={JSON.parse(item.attributes || '[]')}
-                                  selectedColor={item.selectedColor}
-                                  selectedSize={item.selectedSize}
-                                  handleColorClick={() => { }}
-                                  handleSizeClick={() => { }}
-                                />
-                              </div>
-                            )}
-                            <div className='inc-dec'>
-                              <div className="quantity-controls">
-                                <button
-                                  className="quantity-button"
-                                  onClick={(e) => { e.stopPropagation(); this.incrementQuantity(item); }}
-                                >
-                                  +
-                                </button>
-                                <span className="quantity-value">
-                                  {item.quantity}
-                                </span>
-                                <button
-                                  className="quantity-button"
-                                  onClick={(e) => { e.stopPropagation(); this.decrementQuantity(item); }}
-                                >
-                                  −
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                {parsedCartData.map(item => (
+  <div className='product-div' key={item.id}>
+    <div className="product-cart-box">
+      <img className='cart-item-image' src={JSON.parse(item.image)[0]} alt={item.name} />
+      <div className="cart-item-details">
+        <div className='cart-details-box'>
+          <p className='product-name-cart'>{item.name}</p>
+          <p className='product-price-cart'>${item.price}</p>
+          {item.attributes && (
+            <div>
+              <ProductAttributes
+                attributes={JSON.parse(item.attributes || '[]')}
+                selectedColor={item.selectedColor}
+                selectedSize={item.selectedSize}
+                handleColorClick={(newColor) => this.handleColorChange(item, newColor)}
+                handleSizeClick={(newSize) => this.handleSizeChange(item, newSize)}
+              />
+            </div>
+          )}
+          <div className='inc-dec'>
+            <div className="quantity-controls">
+              <button
+                className="quantity-button"
+                onClick={(e) => { e.stopPropagation(); this.incrementQuantity(item); }}
+              >
+                +
+              </button>
+              <span className="quantity-value">
+                {item.quantity}
+              </span>
+              <button
+                className="quantity-button"
+                onClick={(e) => { e.stopPropagation(); this.decrementQuantity(item); }}
+              >
+                −
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+))}
+
                   <p className="totalValueContainer">
                     <span><b>Total:</b></span>
                     <span>${totalPrice.toFixed(2)}</span>

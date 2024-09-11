@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { gql } from "@apollo/client";
 import { withApollo } from '@apollo/react-hoc';
 import { Link } from "react-router-dom";
-
 import iconCart from '../images/icon.png';
 
 class CategoryPage extends Component {
@@ -15,33 +14,34 @@ class CategoryPage extends Component {
     };
   }
 
- 
   FETCH_PRODUCTS = gql`
-  query {
-    products {
-      id
-      name
-      description
-      in_stock
-      brand
-      price
-      attributes
-      image
-      category_id
+    query {
+      products {
+        id
+        name
+        description
+        in_stock
+        brand
+        price
+        attributes
+        image
+        category_id
+      }
+      categories {
+        id
+        name
+      }
     }
-    categories {
-      id
-      name
+  `;
+  
+  FETCH_CATEGORY_NAME = gql`
+    query categoryName($categoryId: ID!) {
+      category(id: $categoryId) {
+        name
+      }
     }
-  }
-`;
-FETCH_CATEGORY_NAME = gql`
-query categoryName($categoryId: ID!) {
-  category(id: $categoryId) {
-    name
-  }
-}
-`;
+  `;
+  
   FETCH_PRODUCTS_BY_CATEGORY = gql`
     query productsByCategory($categoryId: ID!) {
       productsByCategory(category_id: $categoryId) {
@@ -58,13 +58,10 @@ query categoryName($categoryId: ID!) {
     }
   `;
 
-  
-
   fetchProductsByCategory = async (categoryId) => {
     try {
       let response;
       if (categoryId === '1') {
-        // Fetch all products
         response = await this.props.client.query({
           query: gql`
             query {
@@ -83,7 +80,6 @@ query categoryName($categoryId: ID!) {
           `
         });
       } else {
-        // Fetch products by category
         response = await this.props.client.query({
           query: this.FETCH_PRODUCTS_BY_CATEGORY,
           variables: { categoryId }
@@ -114,21 +110,19 @@ query categoryName($categoryId: ID!) {
     }
   };
 
-
   fetchCategoryName = async (categoryId) => {
     try {
       const response = await this.props.client.query({
         query: this.FETCH_CATEGORY_NAME,
         variables: { categoryId }
-        
       });
       const categoryName = response.data.category ? response.data.category.name : '';
       this.setState({ categoryName });
-      console.log(categoryName,'categoryyyyyyyyyy');
     } catch (error) {
       console.log('Error fetching category name:', error);
     }
   };
+
   componentDidMount() {
     const categoryId = this.getCategoryId();
     this.setState({ categoryId }, () => {
@@ -140,47 +134,81 @@ query categoryName($categoryId: ID!) {
       }
     });
   }
-  
-  handleProductBoxClick = (categoryId) => {
-    this.setState({ categoryId }, () => {
 
-      if (categoryId !== '1') {
-        this.setState({ activeCategory: categoryId });
-      }
-      this.fetchProductsByCategory(categoryId);
-    });
+  handleProductBoxClick = (product) => {
+    // Add product to the cart
+    this.addToCart(product);
+    window.location.reload();
   }
 
+  addToCart = (product, selectedColor, selectedSize) => {
+    const cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItemIndex = cartData.findIndex(item => 
+      item.id === product.id && 
+      item.selectedColor === selectedColor && 
+      item.selectedSize === selectedSize
+    );
+  
+    if (existingItemIndex > -1) {
+      // Update quantity if item already exists in the cart
+      cartData[existingItemIndex].quantity += 1;
+      cartData[existingItemIndex].totalPrice = cartData[existingItemIndex].price * cartData[existingItemIndex].quantity;
+    } else {
+      // Add new item to the cart
+      cartData.push({
+        ...product, 
+        quantity: 1, 
+        totalPrice: product.price,
+        selectedColor, 
+        selectedSize
+      });
+    }
+  
+    localStorage.setItem('cart', JSON.stringify(cartData));
+    this.updateCartIcon();
+  }
+  
+  updateCartIcon = () => {
+    const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    const iconCounter = document.querySelector('.item-count-bubble');
+    if (iconCounter) {
+      iconCounter.textContent = cartItems.reduce((total, item) => total + item.quantity, 0).toString();
+    }
+  }
 
   render() {
     const { products, categoryName } = this.state;
 
     return (
       <div className="category-page">
-
-    <h2>{categoryName}</h2>
-    <div className="products-container">
-        <div className="products-wrapper">
-          {products.map(product => (
-            <div className="product-box" key={product.id}>
-              {product.in_stock ? (
-                <Link to={`/product/${product.id}?categoryId=${product.category_id}`}>
+        <h2>{categoryName}</h2>
+        <div className="products-container">
+          <div className="products-wrapper">
+            {products.map(product => (
+              <div className="product-box" key={product.id}>
+                {product.in_stock ? (
+                  <Link to={`/product/${product.id}?categoryId=${product.category_id}`}>
+                    <img className='product-image' src={JSON.parse(product.image)[0]} alt={product.name} />
+                  </Link>
+                ) : (
                   <img className='product-image' src={JSON.parse(product.image)[0]} alt={product.name} />
-                </Link>
-              ) : (
-                <img className='product-image' src={JSON.parse(product.image)[0]} alt={product.name} />
-              )}
-              <div className="product-details">
-                <h3 className="product-name">{product.name}</h3>
-                <div className="product-price"> ${product.price}</div>
+                )}
+                <div className="product-details">
+                  <h3 className="product-name">{product.name}</h3>
+                  <div className="product-price"> ${product.price}</div>
+                </div>
+                {!product.in_stock && (
+                  <div className="out-of-stock">OUT OF STOCK</div>
+                )}
+                <img 
+                  className="icon-image" 
+                  src={iconCart} 
+                  alt="Icon" 
+                  onClick={() => this.handleProductBoxClick(product)} // Handle quick add to cart
+                />
               </div>
-              {!product.in_stock && (
-                <div className="out-of-stock">OUT OF STOCK</div>
-              )}
-              <img className="icon-image" src={iconCart} alt="Icon" />
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
         </div>
       </div>
     );

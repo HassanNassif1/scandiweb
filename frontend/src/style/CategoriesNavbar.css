@@ -233,6 +233,7 @@ margin-right:10%;
   bottom: 14px;
   /* Adjust as needed */
   right: 14px;
+  cursor: pointer;
   /* Adjust as needed */
 }
 
@@ -533,22 +534,22 @@ margin-right: 20px;
 .selected-size-cart {
   width: 24px;
   height: 24px;
-  gap: 0px;
-  border: 1px 0px 0px 0px;
-  opacity: 0px;
   border: 1px solid #1D1F22;
-  color: #1D1F22;
+  color: #1D1F22; /* Initial text color */
   display: flex;
   justify-content: center;
-  /* Center horizontally */
   align-items: center;
- 
+  cursor: pointer;
+  opacity: 0.5; /* Adjust opacity as needed */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effect */
 }
+
 
 .selected-size-color {
   width: 16px;
   height: 16px;
   top: 2px;
+  cursor: pointer;
   left: 2px;
   gap: 0px;
   opacity: 0px;
