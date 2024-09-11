@@ -11,7 +11,9 @@ class CategoryPage extends Component {
     this.state = {
       products: [],
       categoryId: this.getCategoryId(),
-      categoryName: '' // Added state variable to hold the category name
+      categoryName: '', // Added state variable to hold the category name,
+      isAnimating: false, // Track animation state
+      animationProduct: null, // Track the product being animated
     };
   }
 
@@ -141,13 +143,23 @@ class CategoryPage extends Component {
       // Show a toast error message if the product is out of stock
       toast.error('This product is out of stock and cannot be added to the cart.');
       return;
-    }
-
-    // Add product to the cart
+    }else if(product.in_stock){
+      window.location.reload(); // Uncomment if you need to reload the page
+        // Show a toast success message with the product name
+    toast.success(`${product.name} has been added to your cart!`, {
+      autoClose: 2000, // Optionally set the autoClose timeout (2 seconds)
+    });
     this.addToCart(product);
-    window.location.reload();
+    // Optionally, reload the page after showing the toast (if needed)
+    }
+   
+  
+    // Add product to the cart
+   
+  
+  
   }
-
+  
   addToCart = (product, selectedColor, selectedSize) => {
     const cartData = JSON.parse(localStorage.getItem('cart')) || [];
     const existingItemIndex = cartData.findIndex(item => 

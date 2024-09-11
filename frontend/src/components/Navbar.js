@@ -139,6 +139,8 @@ class Navbar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      selectedColors: new Set(), // Track all selected colors
+      selectedSizes: new Set(),  // Track all selected sizes
       loadingCart: false,
       categories: [],
       isPlaceOrderDisabled: false,
@@ -148,6 +150,7 @@ class Navbar extends Component {
       cartItemsCount: 0,
       totalQuantity: 0,
       cartHeight: 'auto',
+      loadingOrder: false, // Add this state
       cartItems: [],
       isLoadingCategories: false
     };
@@ -157,37 +160,8 @@ class Navbar extends Component {
     this.incrementQuantity = this.incrementQuantity.bind(this);
     this.decrementQuantity = this.decrementQuantity.bind(this);
   }
-  handleColorChange(item, newColor) {
-    let cartData = JSON.parse(localStorage.getItem('cart')) || [];
-    let updatedCart = cartData.map(cartItem => {
-      if (cartItem.id === item.id && cartItem.selectedSize === item.selectedSize) {
-        return { ...cartItem, selectedColor: newColor };
-      }
-      return cartItem;
-    });
-
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
-    this.setState({ cartItems: updatedCart }, () => {
-      this.calculateCartTotal();
-      this.updateCartHeight();
-    });
-  }
-
-  handleSizeChange(item, newSize) {
-    let cartData = JSON.parse(localStorage.getItem('cart')) || [];
-    let updatedCart = cartData.map(cartItem => {
-      if (cartItem.id === item.id && cartItem.selectedColor === item.selectedColor) {
-        return { ...cartItem, selectedSize: newSize };
-      }
-      return cartItem;
-    });
-
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
-    this.setState({ cartItems: updatedCart }, () => {
-      this.calculateCartTotal();
-      this.updateCartHeight();
-    });
-  }
+ 
+  
 
   FETCH_CATEGORIES = gql`
   query {
@@ -209,13 +183,15 @@ class Navbar extends Component {
     }
   };
   updateCartHeight = () => {
+    // Avoid frequent DOM access; use a ref instead if possible
     const cartContainer = document.querySelector('.cart-box');
     if (cartContainer) {
-      // Recalculate and set the height of the cart container
       const cartHeight = cartContainer.scrollHeight; // Use scrollHeight to include content
       this.setState({ cartHeight: `${cartHeight}px` });
     }
   };
+  
+  
   
   checkCartItems = () => {
     const { cartItems } = this.state;
@@ -252,20 +228,16 @@ class Navbar extends Component {
 
 
   toggleCart = async () => {
+    // Set loading state without delay
     this.setState({ loadingCart: true });
   
-    // Simulate fetching or updating cart data
-    await new Promise(resolve => setTimeout(resolve, 500)); // Simulate delay
-
-    // Proceed to open or close the cart
+    // Directly toggle cart visibility without delay
     this.setState(prevState => ({
       isCartOpen: !prevState.isCartOpen,
       loadingCart: false
     }));
-  
-    // If you want to reload the page (use with caution)
-    // window.location.reload(); // Uncomment if needed
   };
+  
   calculateTotalPrice = () => {
     const cartData = JSON.parse(localStorage.getItem('cart'));
     if (!cartData) {
@@ -278,22 +250,32 @@ class Navbar extends Component {
   };
 
 
-
   placeOrder = async () => {
+    this.setState({ loadingOrder: true }); // Start loading
+  
     try {
       const { client } = this.props;
       const cartData = JSON.parse(localStorage.getItem('cart'));
   
       if (!cartData || cartData.length === 0) {
         toast.error('No items in the cart');
+        this.setState({ loadingOrder: false }); // Stop loading
         return;
       }
   
-      // Check if any item is missing required attributes (color or size)
-      const hasMissingAttributes = cartData.some(item => !item.selectedColor && !item.selectedSize);
+      // Check if any item is missing required attributes (color, size, or specific ones)
+      const hasMissingAttributes = cartData.some(item => {
+        // Determine if attributes are missing
+        const attributes = item.attributes ? JSON.parse(item.attributes) : [];
+        const hasRequiredAttributes = item.selectedColor || item.selectedSize || 
+          attributes.some(attr => attr.name === 'Capacity' || attr.name === 'With USB 3 ports' || attr.name === 'Options to select');
+    
+        return !(item.selectedColor || item.selectedSize || hasRequiredAttributes);
+      });
   
       if (hasMissingAttributes) {
         toast.error('Please complete the selection process before placing the order.');
+        this.setState({ loadingOrder: false }); // Stop loading
         return;
       }
   
@@ -322,7 +304,7 @@ class Navbar extends Component {
         if (item.attributes) {
           const parsedAttributes = JSON.parse(item.attributes);
           parsedAttributes.forEach(attr => {
-            if (attr.name === 'Capacity' || attr.name === 'With USB 3 ports') {
+            if (attr.name === 'Capacity' || attr.name === 'With USB 3 ports' || attr.name === 'NO' || attr.name === '') {
               acc[item.name].attributes.push(attr);
             }
           });
@@ -361,6 +343,8 @@ class Navbar extends Component {
     } catch (error) {
       console.error('Error placing order:', error);
       toast.error('An error occurred while placing your order. Please try again.');
+    } finally {
+      this.setState({ loadingOrder: false }); // Stop loading in case of success or error
     }
   };
   
@@ -368,78 +352,140 @@ class Navbar extends Component {
   
   
   
-  
-  
-  
-
-  
-incrementQuantity = (item) => {
-  let cartData = JSON.parse(localStorage.getItem('cart')) || [];
-  let updatedCart;
-  if (cartData.length === 0) {
-    updatedCart = [{ ...item, quantity: 1, totalPrice: item.price }];
-  } else {
-    let itemFound = false;
-    updatedCart = cartData.map(cartItem => {
-      if (cartItem.id === item.id && cartItem.selectedColor === item.selectedColor && cartItem.selectedSize === item.selectedSize) {
-        itemFound = true;
-        const newQuantity = cartItem.quantity + 1;
-        return { ...cartItem, quantity: newQuantity, totalPrice: item.price * newQuantity };
-      }
-      return cartItem;
-    });
-
-    if (!itemFound) {
-      updatedCart.push({ ...item, quantity: 1, totalPrice: item.price });
-    }
+  generateUniqueKey(item) {
+    return `${item.id}-${item.selectedColor || 'noColor'}-${item.selectedSize || 'noSize'}`;
   }
-  localStorage.setItem('cart', JSON.stringify(updatedCart));
-  this.setState(prevState => ({
-    cartItems: updatedCart,
-    totalQuantity: prevState.totalQuantity + 1,
-    cartItemsCount: prevState.cartItemsCount + 1
-  }), () => {
-    this.calculateTotalPrice();
-    requestAnimationFrame(() => {
-      this.updateCartHeight();
-      const iconCounter = document.querySelector('.item-bubble-count');
-      if (iconCounter) {
-        iconCounter.textContent = updatedCart.reduce((total, item) => total + item.quantity, 0).toString();
+  
+  
+  
+  
+
+ 
+  removeDuplicates = (cartData) => {
+    const uniqueItems = new Map();
+
+    cartData.forEach(item => {
+      const key = this.generateUniqueKey(item);
+      if (uniqueItems.has(key)) {
+        uniqueItems.get(key).quantity += item.quantity;
+        uniqueItems.get(key).totalPrice = uniqueItems.get(key).price * uniqueItems.get(key).quantity;
+      } else {
+        uniqueItems.set(key, item);
       }
     });
-  });
-};
 
+    return Array.from(uniqueItems.values());
+  };
   
-  decrementQuantity = (item) => {
+  incrementQuantity = (item) => {
     let cartData = JSON.parse(localStorage.getItem('cart')) || [];
-    let updatedCart = cartData.map(cartItem => {
-      if (cartItem.id === item.id && cartItem.selectedColor === item.selectedColor && cartItem.selectedSize === item.selectedSize) {
-        const newQuantity = Math.max(cartItem.quantity - 1, 0);
-        if (newQuantity === 0) {
-          return null;
-        } else {
-          return { ...cartItem, quantity: newQuantity, totalPrice: item.price * newQuantity };
-        }
-      }
-      return cartItem;
-    }).filter(Boolean);
-  
-    localStorage.setItem('cart', JSON.stringify(updatedCart));
+    const uniqueKey = this.generateUniqueKey(item);
+
+    const existingItemIndex = cartData.findIndex(cartItem => this.generateUniqueKey(cartItem) === uniqueKey);
+
+    if (existingItemIndex !== -1) {
+      cartData[existingItemIndex].quantity += 1;
+      cartData[existingItemIndex].totalPrice = cartData[existingItemIndex].price * cartData[existingItemIndex].quantity;
+    }
+
+    cartData = this.removeDuplicates(cartData);
+
+    localStorage.setItem('cart', JSON.stringify(cartData));
     this.setState(prevState => ({
-      cartItems: updatedCart,
-      totalQuantity: updatedCart.reduce((total, item) => total + item.quantity, 0)
+      cartItems: cartData,
+      totalQuantity: prevState.totalQuantity + 1
     }), () => {
       this.calculateTotalPrice();
       requestAnimationFrame(() => {
         this.updateCartHeight();
         const iconCounter = document.querySelector('.item-bubble-count');
         if (iconCounter) {
-          iconCounter.textContent = updatedCart.reduce((total, item) => total + item.quantity, 0).toString();
+          iconCounter.textContent = cartData.reduce((total, item) => total + item.quantity, 0).toString();
         }
       });
     });
   };
+
+  decrementQuantity = (item) => {
+    let cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    const uniqueKey = this.generateUniqueKey(item);
+
+    const existingItemIndex = cartData.findIndex(cartItem => this.generateUniqueKey(cartItem) === uniqueKey);
+
+    if (existingItemIndex !== -1) {
+      cartData[existingItemIndex].quantity -= 1;
+
+      if (cartData[existingItemIndex].quantity <= 0) {
+        cartData.splice(existingItemIndex, 1);
+      } else {
+        cartData[existingItemIndex].totalPrice = cartData[existingItemIndex].price * cartData[existingItemIndex].quantity;
+      }
+    }
+
+    cartData = this.removeDuplicates(cartData);
+
+    localStorage.setItem('cart', JSON.stringify(cartData));
+    this.setState(prevState => ({
+      cartItems: cartData,
+      totalQuantity: prevState.totalQuantity - 1
+    }), () => {
+      this.calculateTotalPrice();
+      requestAnimationFrame(() => {
+        this.updateCartHeight();
+        const iconCounter = document.querySelector('.item-bubble-count');
+        if (iconCounter) {
+          iconCounter.textContent = cartData.reduce((total, item) => total + item.quantity, 0).toString();
+        }
+      });
+    });
+  };
+
+  handleColorChange(item, newColor) {
+    let cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    const uniqueKey = this.generateUniqueKey(item);
+
+    const updatedCart = cartData.map(cartItem => {
+      if (this.generateUniqueKey(cartItem) === uniqueKey) {
+        return { ...cartItem, selectedColor: newColor };
+      }
+      return cartItem;
+    });
+
+    const finalCart = this.removeDuplicates(updatedCart);
+
+    localStorage.setItem('cart', JSON.stringify(finalCart));
+    this.setState({ cartItems: finalCart }, () => {
+      this.calculateCartTotal();
+      this.updateCartHeight();
+    });
+  }
+
+  handleSizeChange(item, newSize) {
+    let cartData = JSON.parse(localStorage.getItem('cart')) || [];
+    const uniqueKey = this.generateUniqueKey(item);
+
+    const updatedCart = cartData.map(cartItem => {
+      if (this.generateUniqueKey(cartItem) === uniqueKey) {
+        return { ...cartItem, selectedSize: newSize };
+      }
+      return cartItem;
+    });
+
+    const finalCart = this.removeDuplicates(updatedCart);
+
+    localStorage.setItem('cart', JSON.stringify(finalCart));
+    this.setState({ cartItems: finalCart }, () => {
+      this.calculateCartTotal();
+      this.updateCartHeight();
+    });
+  }
+  
+  
+  
+ 
+  
+  
+  
   
   
 
@@ -463,91 +509,100 @@ incrementQuantity = (item) => {
   
 
   render() {
-    const { isPlaceOrderDisabled } = this.state;
+    const { isPlaceOrderDisabled, loadingOrder } = this.state;
     const { categories, activeCategory, isCartOpen, totalPrice, cartHeight, totalQuantity, cartItems, isLoadingCategories } = this.state;
     const cartData = localStorage.getItem('cart');
     const parsedCartData = cartData ? JSON.parse(cartData) : [];
-
+  
     return (
       <div className={isCartOpen ? 'background-overlay' : ''}>
+        {loadingOrder && (
+          <div className="order-loading-overlay">
+            <div className="order-loading-content">
+              <ClipLoader color="#5ECE7B" loading={loadingOrder} css={override} size={100} />
+              <p>Please wait...</p>
+            </div>
+          </div>
+        )}
+  
         {isCartOpen && (
           <div className="cart-container">
-          <div className="cart-box" style={{ height: cartHeight }}>
-            {parsedCartData.length > 0 ? (
-              <div className='products-container'>
-                <div className='mybag-quantity-wrapper'>
-                  <p className='mybag'>My Bag,</p>
-                  <p className='quantity-bag'>{parsedCartData.length} items</p>
-                </div>
-                <ul>
-                {parsedCartData.map(item => (
-  <div className='product-div' key={item.id}>
-    <div className="product-cart-box">
-      <img className='cart-item-image' src={JSON.parse(item.image)[0]} alt={item.name} />
-      <div className="cart-item-details">
-        <div className='cart-details-box'>
-          <p className='product-name-cart'>{item.name}</p>
-          <p className='product-price-cart'>${item.price}</p>
-          {item.attributes && (
-            <div>
-              <ProductAttributes
-                attributes={JSON.parse(item.attributes || '[]')}
-                selectedColor={item.selectedColor}
-                selectedSize={item.selectedSize}
-                handleColorClick={(newColor) => this.handleColorChange(item, newColor)}
-                handleSizeClick={(newSize) => this.handleSizeChange(item, newSize)}
-              />
-            </div>
-          )}
-          <div className='inc-dec'>
-            <div className="quantity-controls">
-              <button
-                className="quantity-button"
-                onClick={(e) => { e.stopPropagation(); this.incrementQuantity(item); }}
-              >
-                +
-              </button>
-              <span className="quantity-value">
-                {item.quantity}
-              </span>
-              <button
-                className="quantity-button"
-                onClick={(e) => { e.stopPropagation(); this.decrementQuantity(item); }}
-              >
-                −
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-))}
-
-                  <p className="totalValueContainer">
-                    <span><b>Total:</b></span>
-                    <span>${totalPrice.toFixed(2)}</span>
-                  </p>
-                  <div className='Place-Order-Container'>
-                    <button
-                      id='1'
-                      onClick={(e) => { e.preventDefault(); this.placeOrder() }}
-                      disabled={isPlaceOrderDisabled}
-                      className="Place-Order"
-                      style={{
-                        opacity: totalQuantity === 0 ? 0.5 : 1,
-                        pointerEvents: totalQuantity === 0 ? 'none' : 'auto'
-                      }}
-                    >
-                      Place Order
-                    </button>
+            <div className="cart-box" style={{ height: cartHeight }}>
+              {parsedCartData.length > 0 ? (
+                <div className='products-container'>
+                  <div className='mybag-quantity-wrapper'>
+                    <p className='mybag'>My Bag,</p>
+                    <p className='quantity-bag'>{parsedCartData.length} items</p>
                   </div>
-                </ul>
-              </div>
-            ) : (
-              <p>No items in the cart</p>
-            )}
-          </div>
+                  <ul>
+                    {parsedCartData.map(item => (
+                      <div className='product-div' key={item.id}>
+                        <div className="product-cart-box">
+                          <img className='cart-item-image' src={JSON.parse(item.image)[0]} alt={item.name} />
+                          <div className="cart-item-details">
+                            <div className='cart-details-box'>
+                              <p className='product-name-cart'>{item.name}</p>
+                              <p className='product-price-cart'>${item.price}</p>
+                              {item.attributes && (
+                                <div>
+                                  <ProductAttributes
+                                    attributes={JSON.parse(item.attributes || '[]')}
+                                    selectedColor={item.selectedColor}
+                                    selectedSize={item.selectedSize}
+                                    handleColorClick={(newColor) => this.handleColorChange(item, newColor)}
+                                    handleSizeClick={(newSize) => this.handleSizeChange(item, newSize)}
+                                  />
+                                </div>
+                              )}
+                              <div className='inc-dec'>
+                                <div className="quantity-controls">
+                                  <button
+                                    className="quantity-button"
+                                    onClick={(e) => { e.stopPropagation(); this.incrementQuantity(item); }}
+                                  >
+                                    +
+                                  </button>
+                                  <span className="quantity-value">
+                                    {item.quantity}
+                                  </span>
+                                  <button
+                                    className="quantity-button"
+                                    onClick={(e) => { e.stopPropagation(); this.decrementQuantity(item); }}
+                                  >
+                                    −
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+  
+                    <p className="totalValueContainer">
+                      <span><b>Total:</b></span>
+                      <span>${totalPrice.toFixed(2)}</span>
+                    </p>
+                    <div className='Place-Order-Container'>
+                      <button
+                        id='1'
+                        onClick={(e) => { e.preventDefault(); this.placeOrder() }}
+                        disabled={isPlaceOrderDisabled}
+                        className="Place-Order"
+                        style={{
+                          opacity: totalQuantity === 0 ? 0.5 : 1,
+                          pointerEvents: totalQuantity === 0 ? 'none' : 'auto'
+                        }}
+                      >
+                        Place Order
+                      </button>
+                    </div>
+                  </ul>
+                </div>
+              ) : (
+                <p>No items in the cart</p>
+              )}
+            </div>
           </div>
         )}
         {/* Main Navbar */}
@@ -585,6 +640,7 @@ incrementQuantity = (item) => {
       </div>
     );
   }
+  
 
 
 
