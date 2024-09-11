@@ -217,7 +217,7 @@ const ProductDetailPage = ({ product, handleAddToCart,setTotalPrice  }) => {
   
     // If the product has size or color attributes, ensure they are selected
     if ((hasSize && !selectedSize) || (hasColor && !selectedColor)) {
-      toast.error('Please select all required attributes before adding to cart.');
+      toast.error('Please  complete the selection process before adding to cart.');
       return;
     }
   

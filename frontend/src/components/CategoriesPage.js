@@ -3,6 +3,7 @@ import { gql } from "@apollo/client";
 import { withApollo } from '@apollo/react-hoc';
 import { Link } from "react-router-dom";
 import iconCart from '../images/icon.png';
+import { toast } from 'react-toastify';
 
 class CategoryPage extends Component {
   constructor(props) {
@@ -136,6 +137,12 @@ class CategoryPage extends Component {
   }
 
   handleProductBoxClick = (product) => {
+    if (!product.in_stock) {
+      // Show a toast error message if the product is out of stock
+      toast.error('This product is out of stock and cannot be added to the cart.');
+      return;
+    }
+
     // Add product to the cart
     this.addToCart(product);
     window.location.reload();

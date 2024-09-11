@@ -293,7 +293,7 @@ class Navbar extends Component {
       const hasMissingAttributes = cartData.some(item => !item.selectedColor && !item.selectedSize);
   
       if (hasMissingAttributes) {
-        toast.error('Please select both color and size for all items before placing the order.');
+        toast.error('Please complete the selection process before placing the order.');
         return;
       }
   
