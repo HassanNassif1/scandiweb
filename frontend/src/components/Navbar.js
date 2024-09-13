@@ -509,7 +509,7 @@ class Navbar extends Component {
   
 
   render() {
-    const { isPlaceOrderDisabled, loadingOrder } = this.state;
+    const { isPlaceOrderDisabled, loadingOrder,selectedCategoryName } = this.state;
     const { categories, activeCategory, isCartOpen, totalPrice, cartHeight, totalQuantity, cartItems, isLoadingCategories } = this.state;
     const cartData = localStorage.getItem('cart');
     const parsedCartData = cartData ? JSON.parse(cartData) : [];
@@ -629,7 +629,9 @@ class Navbar extends Component {
               ))
             )}
           </ul>
+
           <img src={greenShoppingImage} alt="Shop Icon" className="green-shopping-image" />
+          
           <div className="cart-icon" onClick={this.toggleCart}>
             <img className="cart-icon" src={iconCart} alt="Cart" />
             <span className="item-count-bubble">

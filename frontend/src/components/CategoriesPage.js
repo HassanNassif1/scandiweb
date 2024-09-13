@@ -37,14 +37,13 @@ class CategoryPage extends Component {
     }
   `;
   
-  FETCH_CATEGORY_NAME = gql`
-    query categoryName($categoryId: ID!) {
-      category(id: $categoryId) {
-        name
-      }
+   FETCH_CATEGORY_NAME = gql`
+  query categoryName($categoryId: ID!) {
+    category(id: $categoryId) {
+      name
     }
-  `;
-  
+  }
+`;
   FETCH_PRODUCTS_BY_CATEGORY = gql`
     query productsByCategory($categoryId: ID!) {
       productsByCategory(category_id: $categoryId) {

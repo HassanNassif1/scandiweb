@@ -25,6 +25,7 @@ const App = () => {
       <Router>
         <Navbar />
         <Routes>
+          
           <Route path="/category/:categoryId" element={<CategoriesPage />} />
           <Route path="/" element={<CategoriesPage />} />
           <Route path="/product/:productId" element={<ProductDetailPage />} />
