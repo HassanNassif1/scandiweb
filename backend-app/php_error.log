@@ -1,0 +1,1954 @@
+[11-Dec-2024 09:44:13 Europe/Berlin] Fetched product: App\Models\Product Object
+(
+    [db:App\Models\Product:private] => PDO Object
+        (
+        )
+
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 09:45:29 Europe/Berlin] Fetched product: App\Models\Product Object
+(
+    [db:App\Models\Product:private] => PDO Object
+        (
+        )
+
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 09:46:14 Europe/Berlin] Fetched product: App\Models\Product Object
+(
+    [db:App\Models\Product:private] => PDO Object
+        (
+        )
+
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 09:47:12 Europe/Berlin] Fetched product: App\Models\Product Object
+(
+    [db:App\Models\Product:private] => PDO Object
+        (
+        )
+
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 09:47:22 Europe/Berlin] Fetched product: App\Models\Product Object
+(
+    [db:App\Models\Product:private] => PDO Object
+        (
+        )
+
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 09:47:36 Europe/Berlin] Fetched product: App\Models\Product Object
+(
+    [db:App\Models\Product:private] => PDO Object
+        (
+        )
+
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 09:49:03 Europe/Berlin] Fetched product: App\Models\Product Object
+(
+    [db:App\Models\Product:private] => PDO Object
+        (
+        )
+
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 09:51:00 Europe/Berlin] Fetched product: App\Models\Product Object
+(
+    [db:App\Models\Product:private] => PDO Object
+        (
+        )
+
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 09:59:44 Europe/Berlin] Product fetched: App\Models\Product Object
+(
+    [db:App\Models\Product:private] => PDO Object
+        (
+        )
+
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 09:59:44 Europe/Berlin] Received product ID: 1
+[11-Dec-2024 10:02:52 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:02:57 Europe/Berlin] Product fetched: Array
+(
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 10:02:57 Europe/Berlin] Received product ID: 1
+[11-Dec-2024 10:02:57 Europe/Berlin] Attributes before decoding: [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+[11-Dec-2024 10:05:44 Europe/Berlin] Product fetched: Array
+(
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 10:05:44 Europe/Berlin] Received product ID: 1
+[11-Dec-2024 10:05:44 Europe/Berlin] Attributes before decoding: [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+[11-Dec-2024 10:05:44 Europe/Berlin] PHP Warning:  json_decode() expects parameter 1 to be string, array given in C:\Users\DELL\Desktop\projectclone\project-scandiweb\backend-app\src\GraphQL\AppSchema.php on line 59
+[11-Dec-2024 10:05:49 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:05:50 Europe/Berlin] Product fetched: Array
+(
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 10:05:50 Europe/Berlin] Received product ID: 1
+[11-Dec-2024 10:05:50 Europe/Berlin] Attributes before decoding: [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+[11-Dec-2024 10:05:50 Europe/Berlin] PHP Warning:  json_decode() expects parameter 1 to be string, array given in C:\Users\DELL\Desktop\projectclone\project-scandiweb\backend-app\src\GraphQL\AppSchema.php on line 59
+[11-Dec-2024 10:05:51 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:05:57 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:05:59 Europe/Berlin] Product fetched: Array
+(
+    [id] => 3
+    [name] => PlayStation 5
+    [in_stock] => 0
+    [description] => A good gaming console. Plays games of PS4! Enjoy if you can buy it mwahahahaha
+    [category_id] => 3
+    [attributes] => [{"name": "Color", "value": "Green"}, {"name": "Color", "value": "Cyan"}, {"name": "Color", "value": "Blue"}, {"name": "Color", "value": "Black"}, {"name": "Color", "value": "White"}, {"name": "Capacity", "value": "512G"}, {"name": "Capacity", "value": "1T"}]
+    [brand] => Sony
+    [price] => 844.02
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://images-na.ssl-images-amazon.com/images/I/510VSJ9mWDL._SL1262_.jpg", "https://images-na.ssl-images-amazon.com/images/I/610%2B69ZsKCL._SL1500_.jpg", "https://images-na.ssl-images-amazon.com/images/I/51iPoFwQT3L._SL1230_.jpg", "https://images-na.ssl-images-amazon.com/images/I/61qbqFcvoNL._SL1500_.jpg", "https://images-na.ssl-images-amazon.com/images/I/51HCjA3rqYL._SL1230_.jpg"]
+    [attribute_id] => 3
+    [quantity] => 
+)
+
+[11-Dec-2024 10:05:59 Europe/Berlin] Received product ID: 3
+[11-Dec-2024 10:05:59 Europe/Berlin] Attributes before decoding: [{"name": "Color", "value": "Green"}, {"name": "Color", "value": "Cyan"}, {"name": "Color", "value": "Blue"}, {"name": "Color", "value": "Black"}, {"name": "Color", "value": "White"}, {"name": "Capacity", "value": "512G"}, {"name": "Capacity", "value": "1T"}]
+[11-Dec-2024 10:05:59 Europe/Berlin] PHP Warning:  json_decode() expects parameter 1 to be string, array given in C:\Users\DELL\Desktop\projectclone\project-scandiweb\backend-app\src\GraphQL\AppSchema.php on line 59
+[11-Dec-2024 10:07:29 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:07:31 Europe/Berlin] Product fetched: Array
+(
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 10:07:31 Europe/Berlin] Received product ID: 1
+[11-Dec-2024 10:07:31 Europe/Berlin] Attributes before decoding: [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+[11-Dec-2024 10:07:31 Europe/Berlin] PHP Warning:  json_decode() expects parameter 1 to be string, array given in C:\Users\DELL\Desktop\projectclone\project-scandiweb\backend-app\src\GraphQL\AppSchema.php on line 59
+[11-Dec-2024 10:08:02 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:17:24 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:19:35 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:19:36 Europe/Berlin] Product fetched: Array
+(
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 10:19:36 Europe/Berlin] Received product ID: 1
+[11-Dec-2024 10:19:36 Europe/Berlin] Attributes before decoding: [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+[11-Dec-2024 10:19:36 Europe/Berlin] PHP Warning:  json_decode() expects parameter 1 to be string, array given in C:\Users\DELL\Desktop\projectclone\project-scandiweb\backend-app\src\GraphQL\AppSchema.php on line 59
+[11-Dec-2024 10:19:38 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:19:41 Europe/Berlin] Product fetched: Array
+(
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 10:19:41 Europe/Berlin] Received product ID: 1
+[11-Dec-2024 10:19:41 Europe/Berlin] Attributes before decoding: [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+[11-Dec-2024 10:19:41 Europe/Berlin] PHP Warning:  json_decode() expects parameter 1 to be string, array given in C:\Users\DELL\Desktop\projectclone\project-scandiweb\backend-app\src\GraphQL\AppSchema.php on line 59
+[11-Dec-2024 10:19:43 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:19:45 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:23:38 Europe/Berlin] Product fetched: Array
+(
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 10:23:38 Europe/Berlin] Received product ID: 1
+[11-Dec-2024 10:23:38 Europe/Berlin] Attributes before decoding: [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+[11-Dec-2024 10:23:38 Europe/Berlin] PHP Warning:  json_decode() expects parameter 1 to be string, array given in C:\Users\DELL\Desktop\projectclone\project-scandiweb\backend-app\src\GraphQL\AppSchema.php on line 59
+[11-Dec-2024 10:24:09 Europe/Berlin] Product fetched: Array
+(
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 10:24:09 Europe/Berlin] Received product ID: 1
+[11-Dec-2024 10:24:09 Europe/Berlin] Attributes before decoding: [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+[11-Dec-2024 10:24:09 Europe/Berlin] PHP Warning:  json_decode() expects parameter 1 to be string, array given in C:\Users\DELL\Desktop\projectclone\project-scandiweb\backend-app\src\GraphQL\AppSchema.php on line 59
+[11-Dec-2024 10:25:46 Europe/Berlin] PHP Notice:  Undefined variable: categoryController in C:\Users\DELL\Desktop\projectclone\project-scandiweb\backend-app\src\GraphQL\AppSchema.php on line 69
+[11-Dec-2024 10:25:58 Europe/Berlin] PHP Notice:  Undefined variable: categoryController in C:\Users\DELL\Desktop\projectclone\project-scandiweb\backend-app\src\GraphQL\AppSchema.php on line 69
+[11-Dec-2024 10:26:32 Europe/Berlin] Product fetched: Array
+(
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 10:26:32 Europe/Berlin] Received product ID: 1
+[11-Dec-2024 10:26:32 Europe/Berlin] PHP Warning:  json_decode() expects parameter 1 to be string, array given in C:\Users\DELL\Desktop\projectclone\project-scandiweb\backend-app\src\GraphQL\AppSchema.php on line 65
+[11-Dec-2024 10:26:34 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:26:55 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:26:57 Europe/Berlin] Product fetched: Array
+(
+    [id] => 1
+    [name] => Nike Air Huarache Le
+    [in_stock] => 1
+    [description] => Great sneakers for everyday use!
+    [category_id] => 2
+    [attributes] => [{"name": "Size", "value": "40"}, {"name": "Size", "value": "41"}, {"name": "Size", "value": "42"}, {"name": "Size", "value": "43"}]
+    [brand] => Nike x Stussy
+    [price] => 144.69
+    [created_at] => 
+    [updated_at] => 
+    [image] => ["https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_2_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_1_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_3_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_5_720x.jpg?v=1612816087", "https://cdn.shopify.com/s/files/1/0087/6193/3920/products/DD1381200_DEOA_4_720x.jpg?v=1612816087"]
+    [attribute_id] => 1
+    [quantity] => 
+)
+
+[11-Dec-2024 10:26:57 Europe/Berlin] Received product ID: 1
+[11-Dec-2024 10:26:57 Europe/Berlin] PHP Warning:  json_decode() expects parameter 1 to be string, array given in C:\Users\DELL\Desktop\projectclone\project-scandiweb\backend-app\src\GraphQL\AppSchema.php on line 65
+[11-Dec-2024 10:27:00 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+
+[11-Dec-2024 10:27:02 Europe/Berlin] Array
+(
+    [0] => Array
+        (
+            [id] => 1
+            [label] => USD
+            [symbol] => $
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [1] => Array
+        (
+            [id] => 2
+            [label] => EUR
+            [symbol] => €
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [2] => Array
+        (
+            [id] => 3
+            [label] => GBP
+            [symbol] => £
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [3] => Array
+        (
+            [id] => 4
+            [label] => JPY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [4] => Array
+        (
+            [id] => 5
+            [label] => AUD
+            [symbol] => A$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [5] => Array
+        (
+            [id] => 6
+            [label] => CAD
+            [symbol] => C$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [6] => Array
+        (
+            [id] => 7
+            [label] => CHF
+            [symbol] => Fr.
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [7] => Array
+        (
+            [id] => 8
+            [label] => CNY
+            [symbol] => ¥
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [8] => Array
+        (
+            [id] => 9
+            [label] => SEK
+            [symbol] => kr
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [9] => Array
+        (
+            [id] => 10
+            [label] => NZD
+            [symbol] => NZ$
+            [created_at] => 
+            [updated_at] => 
+        )
+
+    [10] => Array
+        (
+            [id] => 11
+            [label] => GEL
+            [symbol] => ₾
+            [created_at] => 
+            [updated_at] => 
+        )
+
+)
+

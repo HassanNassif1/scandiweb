@@ -1,0 +1,27 @@
+<?php
+
+
+namespace App\Interfaces;
+
+interface OrderInterface
+{
+    /**
+     * Create a new order.
+     *
+     * @param int $product_id The ID of the product being ordered.
+     * @param string $product_name The name of the product.
+     * @param string $description A description of the product.
+     * @param float $total_amount The total amount of the order.
+     * @param string $attributes A JSON string of product attributes.
+     * @param int $quantity The quantity of the product being ordered.
+     * @return array|null The newly created order or null if creation fails.
+     */
+    public function createOrder($product_id, $product_name, $description, $total_amount, $attributes, $quantity);
+    
+    /**
+     * Fetch all orders.
+     *
+     * @return array List of all orders.
+     */
+  
+}
