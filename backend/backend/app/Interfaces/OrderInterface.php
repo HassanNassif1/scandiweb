@@ -9,5 +9,5 @@ interface OrderInterface
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function getAllOrders();
+    public function createOrder($product_id, $product_name, $description, $total_amount, $attributes, $quantity);
 }

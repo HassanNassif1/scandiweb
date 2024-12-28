@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 namespace App\Controllers;
 
@@ -71,4 +71,4 @@ class GraphQL {
         header('Content-Type: application/json; charset=UTF-8');
         return json_encode($output);
     }
-}
+} 

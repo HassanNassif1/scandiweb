@@ -8,6 +8,12 @@ type prices{
   amount: Float!
   currency: String!
 }
+type currencies {
+  id: ID!
+  label: String!
+  symbol: String!
+}
+
 type products {
   id: ID!
   name: String!
@@ -70,6 +76,7 @@ type Query {
     categories: [categories] @all
     orders:[orders] @all
     products: [products] @all
+    currencies: [currencies] @all
     product(id: ID!): products
     productimages: [productimages] @all
     productsByCategory(category_id: ID!): [products!]!
