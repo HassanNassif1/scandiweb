@@ -659,7 +659,14 @@ body {
     margin-right: 10px;
     /* Add margin between boxes */
   }
-  
+  .attribute-box-color {
+    display: inline-block;
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+    /* Add margin between boxes */
+  }
   .attribute-values {
     display: flex;
     gap: 5px;
