@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 
 class PDP_Attributes extends Component {
   render() {
-    const { 
-      attributes, 
-      selectedColor, 
-      setSelectedColor, 
-      selectedSize, 
-      setSelectedSize, 
-      selectedCapacity, 
+    const {
+      attributes,
+      selectedColor,
+      setSelectedColor,
+      selectedSize,
+      setSelectedSize,
+      selectedCapacity,
       setSelectedCapacity,
       selectedWithUSB3Ports,
       setSelectedWithUSB3Ports,
@@ -33,23 +33,23 @@ class PDP_Attributes extends Component {
     };
 
     // Helper function to convert a value to kebab-case for test ids (not for actual values)
-   // Helper function to convert a value to kebab-case for test ids (not for actual values)
-// Helper function to convert value to test id for attributes
-const toAttributeTestId = (value) => {
-  // Only remove special characters except for '#' and '-' for test ids
-  return value
-    .replace(/\s+/g, '-')  // Replace spaces with hyphens
-    .replace(/[^a-zA-Z0-9\-#]/g, '')
-    .replace(/^([a-z])/, (match) => match.toUpperCase());
-};
+    // Helper function to convert a value to kebab-case for test ids (not for actual values)
+    // Helper function to convert value to test id for attributes
+    const toAttributeTestId = (value) => {
+      // Only remove special characters except for '#' and '-' for test ids
+      return value
+        .replace(/\s+/g, '-')  // Replace spaces with hyphens
+        .replace(/[^a-zA-Z0-9\-#]/g, '')
+        .replace(/^([a-z])/, (match) => match.toUpperCase());
+    };
 
 
     return (
       <div>
         {Object.keys(attributeMap).map((attrName) => (
-          <div 
-            key={attrName} 
-            className="attribute-container" 
+          <div
+            key={attrName}
+            className="attribute-container"
             data-testid={`product-attribute-${toKebabCase(attrName)}`} // Kebab-case only for attribute names
           >
             <div className="attribute-item">
@@ -59,17 +59,16 @@ const toAttributeTestId = (value) => {
                   attributeMap[attrName].map((value, index) => (
                     <div
                       key={index}
-                      className={`attribute-box ${value === selectedColor ? 'active' : ''} ${
-                        value === '#ffffff' || value.toLowerCase() === 'white' ? 'white' : ''
-                      }`}
+                      className={`attribute-box ${value === selectedColor ? 'active' : ''} ${value === '#ffffff' || value.toLowerCase() === 'white' ? 'white' : ''
+                        }`}
                       style={{
                         backgroundColor: value,
-                        border: value === selectedColor 
+                        border: value === selectedColor
                           ? '2.5px solid #5ECE7B' // Green border for selected
                           : value === '#ffffff' || value.toLowerCase() === 'white'
-                          ? '2.5px solid #000' // Black border for white
-                          : '2.5px solid transparent', // Transparent border for others
-                        boxShadow: value === '#ffffff' || value.toLowerCase() === 'white' 
+                            ? '2.5px solid #000' // Black border for white
+                            : '2.5px solid transparent', // Transparent border for others
+                        boxShadow: value === '#ffffff' || value.toLowerCase() === 'white'
                           ? '0 0 2px rgba(0, 0, 0, 0.5)' // Shadow for white
                           : 'none',
                       }}

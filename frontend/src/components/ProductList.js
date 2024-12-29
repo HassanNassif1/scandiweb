@@ -83,11 +83,11 @@ class ProductList extends Component {
     }
     return 'all'; // Default to 'all' if no category is found
   };
-  
+
   // Fetch products based on the selected category
   fetchProducts = async () => {
     const { categoryName } = this.state;
-  
+
     try {
       let response;
       if (categoryName === 'all') {
@@ -98,7 +98,7 @@ class ProductList extends Component {
           variables: { categoryName },
         });
       }
-  
+
       if (response.data) {
         const products = response.data.productsByCategory || response.data.products;
         this.setState({ products, loading: false });
@@ -150,21 +150,21 @@ class ProductList extends Component {
     this.setState({ categoryName: categoryName.toLowerCase() }, () => {
       // Update the URL with the new category
       window.history.pushState({}, "", `/${categoryName.toLowerCase()}`);
-  
+
       // Fetch products for the selected category
       this.fetchProducts();
     });
   };
-  
+
   handleProductBoxClick = (product) => {
     if (!product.in_stock) {
       toast.error('This product is out of stock and cannot be added to the cart.');
       return;
     }
-  
+
     // Set the productId in localStorage for use in PDP or other components
     localStorage.setItem('productId', product.id);
-  
+
     // Generate default attributes from product attributes
     const defaultAttributes = product.attributes.reduce((attributes, attribute) => {
       if (attribute.value && attribute.value.length > 0) {
@@ -172,25 +172,25 @@ class ProductList extends Component {
       }
       return attributes;
     }, {});
-  
+
     // Call addToCart with the selected attributes
     this.addToCart(product, defaultAttributes);
   };
-  
-  
+
+
 
   addToCart = (product, selectedAttributes) => {
     // Fetch current cart data from localStorage
     let cartData = JSON.parse(localStorage.getItem('cart')) || [];
-  
+
     // Generate a unique product key based on product ID and selected attributes
     const productKey = `${product.id}-${JSON.stringify(selectedAttributes)}`;
-  
+
     // Find if the product with the same ID and selected attributes already exists in the cart
     const existingProductIndex = cartData.findIndex(item =>
       `${item.id}-${JSON.stringify(item.selectedAttributes)}` === productKey
     );
-  
+
     if (existingProductIndex > -1) {
       // If the product exists in the cart, increase the quantity and update the price
       const existingProduct = cartData[existingProductIndex];
@@ -206,48 +206,48 @@ class ProductList extends Component {
         productPrice,  // Store price for the product
       });
     }
-  
+
     // Calculate the updated total price from all products in the cart
     let updatedTotalPrice = cartData.reduce((total, item) => total + (item.productPrice || 0), 0);
-  
+
     // Ensure the total price is a valid number
     if (isNaN(updatedTotalPrice)) {
       updatedTotalPrice = 0;
     }
-  
+
     // Store the updated cart data and total price in localStorage
     localStorage.setItem('cart', JSON.stringify(cartData));
     localStorage.setItem('totalprice', updatedTotalPrice.toFixed(2));
-  
+
     // Update the state with the new total price
     this.setState({ totalPrice: updatedTotalPrice });
-  
+
     // Update the cart icon
     this.updateCartIcon();
-  
+
     // Show success toast message
     toast.success(`${product.name} has been added to your cart!`);
   };
-  
+
   updateCartIcon = () => {
     const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     const iconCounter = document.querySelector('.item-count-bubble');
-    
+
     if (iconCounter) {
       // Calculate the total quantity of items in the cart
       const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
       iconCounter.textContent = totalQuantity.toString(); // Update the counter
     }
   };
-  
+
 
   render() {
     const { products, categoryName, loading, categories } = this.state;
-  
+
     if (loading) {
       return <div></div>; // You might want to add a loading spinner or indicator here
     }
-  
+
     return (
       <CurrencyContext.Consumer>
         {({ selectedCurrency, setSelectedCurrency, currencyRates }) => (
@@ -257,12 +257,12 @@ class ProductList extends Component {
               activeCategoryName={categoryName}  // Pass the active category name
               handleCategoryClick={this.handleCategoryClick}  // Pass handleCategoryClick function as a prop
             />
-  
+
             <CurrencySelector
               selectedCurrency={selectedCurrency}
               setSelectedCurrency={setSelectedCurrency}
             />
-  
+
             <ProductList_Page
               products={products.map(product => ({
                 ...product,
@@ -277,7 +277,7 @@ class ProductList extends Component {
       </CurrencyContext.Consumer>
     );
   }
-  
+
 }
 
 export default withApollo(ProductList);  // Wrap this component with Apollo HOC

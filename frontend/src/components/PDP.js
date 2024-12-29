@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import  withRouter  from '../navigation/withRouter';
+import withRouter from '../navigation/withRouter';
 import { gql } from '@apollo/client';
 import { withApollo } from '@apollo/react-hoc';
 import { useNavigate } from 'react-router-dom';
@@ -61,7 +61,7 @@ class PDP extends Component {
       totalPrice: 0,
       dummyState: false,
       selectedImageIndex: 0,
-      cartItems: [], 
+      cartItems: [],
       selectedColor: null,
       selectedSize: null,
       selectedCapacity: null,
@@ -81,7 +81,7 @@ class PDP extends Component {
       isCartOpen: !prevState.isCartOpen,
     }));
   };
-  
+
   componentDidMount() {
     const { client } = this.props;
     const { productId } = this.props.params;
@@ -125,16 +125,16 @@ class PDP extends Component {
   };
   isAddToCartDisabled = () => {
     const { selectedSize, selectedColor, selectedCapacity, selectedWithUSB3Ports, selectedWithTouchID, product } = this.state;
-  
+
     // If the product or its attributes are not yet loaded, disable the button
     if (!product || !product.attributes) return true;
-  
+
     const hasSize = product.attributes.some(attr => attr.name === "Size");
     const hasColor = product.attributes.some(attr => attr.name === "Color");
     const hasCapacity = product.attributes.some(attr => attr.name === "Capacity");
     const hasUSB3ports = product.attributes.some(attr => attr.name === "With USB 3 ports");
     const hasTouchID = product.attributes.some(attr => attr.name === "Touch ID in keyboard");
-  
+
     // Disable the button if any of the required attributes are not selected
     return (
       (hasSize && !selectedSize) ||
@@ -144,33 +144,33 @@ class PDP extends Component {
       (hasTouchID && !selectedWithTouchID)
     );
   };
-  
+
   handleAddToCart = (product) => {
-    const {  selectedColor, selectedSize, selectedCapacity, selectedWithUSB3Ports, selectedWithTouchID } = this.state;
-  
+    const { selectedColor, selectedSize, selectedCapacity, selectedWithUSB3Ports, selectedWithTouchID } = this.state;
+
     // Ensure attributes are parsed if they're in string format
     let attributes = product.attributes;
     if (typeof attributes === 'string') {
       attributes = JSON.parse(attributes);
     }
-  
+
     // Check if the product is in stock
     if (!product.in_stock) {
       toast.error('This product is out of stock and cannot be added to the cart.');
       return;
     }
-  
+
     // Check if all required attributes are selected
     const hasSize = attributes.some(attr => attr.name === "Size");
     const hasColor = attributes.some(attr => attr.name === "Color");
     const hasCapacity = attributes.some(attr => attr.name === "Capacity");
     const hasUSB3ports = attributes.some(attr => attr.name === "With USB 3 ports");
     const hasTouchID = attributes.some(attr => attr.name === "Touch ID in keyboard");
-  
+
     // If any necessary attribute is missing, show an error
     if (
-      (hasSize && !selectedSize) || 
-      (hasColor && !selectedColor) || 
+      (hasSize && !selectedSize) ||
+      (hasColor && !selectedColor) ||
       (hasCapacity && !selectedCapacity) ||
       (hasTouchID && !selectedWithTouchID) ||
       (hasUSB3ports && !selectedWithUSB3Ports)
@@ -185,7 +185,7 @@ class PDP extends Component {
       if (toggleCartButton) {
         // Simulate a click on the cart icon to open the cart
         toggleCartButton.click();
-        
+
         // Show a success toast message
         toast.success(`${product.name} has been added to your cart!`, {
           autoClose: 5000,
@@ -194,13 +194,13 @@ class PDP extends Component {
     }
     // Calculate product price
     const productPrice = product.price * 1; // Assuming quantity is 1
-  
+
     // Update total price in state
     this.setState(prevState => {
       const updatedTotalPrice = prevState.totalPrice + productPrice;
       return { totalPrice: updatedTotalPrice };
     });
-  
+
     // Add product to cart
     const productCopy = {
       ...product,
@@ -212,23 +212,23 @@ class PDP extends Component {
       quantity: 1,
       productPrice,
     };
-  
+
     const cartData = JSON.parse(localStorage.getItem('cart')) || [];
     cartData.push(productCopy);
     localStorage.setItem('cart', JSON.stringify(cartData));
-  
+
     // Update cart total price in localStorage
     const updatedTotalPrice = cartData.reduce((total, item) => total + item.productPrice, 0);
     localStorage.setItem('totalprice', updatedTotalPrice);
-  
+
     // Show success message
     toast.success(`${product.name} has been added to your cart!`, { autoClose: 5000 });
-  
+
     // Directly toggle cart open after adding item to cart
     this.setState({ isCartOpen: true });
   };
-  
-  
+
+
 
   // Example of the toggleCart method (adjust as per your requirements)
   toggleCart = () => {
@@ -237,10 +237,10 @@ class PDP extends Component {
     }));
   };
 
-  
-  
-  
-  
+
+
+
+
   render() {
     const {
       totalPrice,
@@ -257,7 +257,7 @@ class PDP extends Component {
       error,
       errorCategories,
     } = this.state;
-  
+
     if (loading || loadingCategories) {
       return (
         <div className="loading-spinner-container">
@@ -265,31 +265,31 @@ class PDP extends Component {
         </div>
       );
     }
-  
+
     if (error) {
       return <p>Error fetching product details: {error.message}</p>;
     }
-  
+
     if (errorCategories) {
       return <p>Error fetching categories: {errorCategories.message}</p>;
     }
-  
+
     if (!product) {
       return <p>No product found.</p>;
     }
-  
+
     const images = JSON.parse(product.image || '[]');
-  
+
     return (
       <>
-           <Navbar
-        categories={categories}
-        activeCategoryName={this.state.product.category.name.toLowerCase()}
-        handleCategoryClick={(categoryId) => this.props.navigate(`/${categoryId.toLowerCase()}`)}
-        isCartOpen={this.state.isCartOpen}      // Pass the state to Navbar
-        toggleCart={this.toggleCart}             // Pass the toggle function to Navbar
-      />
-  
+        <Navbar
+          categories={categories}
+          activeCategoryName={this.state.product.category.name.toLowerCase()}
+          handleCategoryClick={(categoryId) => this.props.navigate(`/${categoryId.toLowerCase()}`)}
+          isCartOpen={this.state.isCartOpen}      // Pass the state to Navbar
+          toggleCart={this.toggleCart}             // Pass the toggle function to Navbar
+        />
+
         <PDP_Page
           product={product}
           images={images}
@@ -320,8 +320,8 @@ class PDP extends Component {
       </>
     );
   }
-  
-  
+
+
 }
 
 export default withRouter(withApollo(PDP));

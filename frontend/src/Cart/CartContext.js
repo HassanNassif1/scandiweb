@@ -13,7 +13,7 @@ export const CartProvider = ({ children }) => {
   const addToCart = (product) => {
     setCart(prevCart => {
       const existingProductIndex = prevCart.findIndex(item => item.id === product.id && item.selectedColor === product.selectedColor && item.selectedSize === product.selectedSize);
-      
+
       if (existingProductIndex !== -1) {
         // Update quantity if the product already exists
         const updatedCart = [...prevCart];

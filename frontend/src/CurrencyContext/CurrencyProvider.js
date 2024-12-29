@@ -33,12 +33,12 @@ class CurrencyProvider extends Component {
     render() {
         const { selectedCurrency, currencyRates, products } = this.state;
         return (
-            <CurrencyContext.Provider 
+            <CurrencyContext.Provider
                 value={{
-                    selectedCurrency, 
-                    setSelectedCurrency: (currency) => this.setState({ selectedCurrency: currency }), 
-                    currencyRates, 
-                    convertPrice: this.convertPrice, 
+                    selectedCurrency,
+                    setSelectedCurrency: (currency) => this.setState({ selectedCurrency: currency }),
+                    currencyRates,
+                    convertPrice: this.convertPrice,
                     products
                 }}>
                 {this.props.children}

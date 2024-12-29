@@ -97,29 +97,29 @@ class ProductCart_Attributes extends Component {
                 )}
 
 
-{attribute.name === "Size" && (
-  <>
-    <p className="attribute-label-Size">Size:</p>
-    <div className="attribute-wrapper-size">
-      <div className="attribute-values-size">
-        {attributes
-          .filter(attr => attr.name === "Size")
-          .map((attr, idx) => {
-            const testIdBase = `cart-item-attribute-${this.toKebabCase(attr.name)}-${this.toKebabCase(attr.value)}`;
-            return (
-              <div
-                key={idx}
-                className={`selected-size-cart ${attr.value === defaultSelectedSize ? 'active' : ''}`}
-                data-testid={`${testIdBase}${attr.value === defaultSelectedSize ? '-selected' : ''}`}
-              >
-                {attr.value}
-              </div>
-            );
-          })}
-      </div>
-    </div>
-  </>
-)}
+                {attribute.name === "Size" && (
+                  <>
+                    <p className="attribute-label-Size">Size:</p>
+                    <div className="attribute-wrapper-size">
+                      <div className="attribute-values-size">
+                        {attributes
+                          .filter(attr => attr.name === "Size")
+                          .map((attr, idx) => {
+                            const testIdBase = `cart-item-attribute-${this.toKebabCase(attr.name)}-${this.toKebabCase(attr.value)}`;
+                            return (
+                              <div
+                                key={idx}
+                                className={`selected-size-cart ${attr.value === defaultSelectedSize ? 'active' : ''}`}
+                                data-testid={`${testIdBase}${attr.value === defaultSelectedSize ? '-selected' : ''}`}
+                              >
+                                {attr.value}
+                              </div>
+                            );
+                          })}
+                      </div>
+                    </div>
+                  </>
+                )}
 
 
                 {attribute.name === "Capacity" && (
@@ -194,13 +194,13 @@ class ProductCart_Attributes extends Component {
                   </>
                 )}
 
-                {attribute.name !== "Color" && 
-                 attribute.name !== "Size" && 
-                 attribute.name !== "Capacity" && 
-                 attribute.name !== "With USB 3 ports" && 
-                 attribute.name !== "Touch ID in keyboard" && (
-                   <p>{`${attribute.name}: ${attribute.value}`}</p>
-                )}
+                {attribute.name !== "Color" &&
+                  attribute.name !== "Size" &&
+                  attribute.name !== "Capacity" &&
+                  attribute.name !== "With USB 3 ports" &&
+                  attribute.name !== "Touch ID in keyboard" && (
+                    <p>{`${attribute.name}: ${attribute.value}`}</p>
+                  )}
               </div>
             );
           })}

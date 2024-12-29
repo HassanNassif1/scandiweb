@@ -11,7 +11,7 @@ class PDP_Page extends Component {
       handleAddToCartClick,
       renderAttributes,
       handleImageClick,
-      isAddToCartDisabled=false,
+      isAddToCartDisabled = false,
       convertedPrice,
       currencySymbol,
     } = this.props;
@@ -45,22 +45,22 @@ class PDP_Page extends Component {
           {renderAttributes}
           <p className="attribute-name">Price:</p>
           <p className="price-value" data-testid="product-price">{currencySymbol}{convertedPrice}</p>  {/* Added data-testid */}
-      
+
           <div className='Button-Container'>
-          <button
-  className={`add-to-cart-button ${isAddToCartDisabled ? 'disabled' : ''}`}
-  data-testid="add-to-cart"
-  onClick={handleAddToCartClick}
-  disabled={isAddToCartDisabled} // Check if this is set correctly in your state/props
->
-  ADD TO CART
-</button>
+            <button
+              className={`add-to-cart-button ${isAddToCartDisabled ? 'disabled' : ''}`}
+              data-testid="add-to-cart"
+              onClick={handleAddToCartClick}
+              disabled={isAddToCartDisabled} // Check if this is set correctly in your state/props
+            >
+              ADD TO CART
+            </button>
 
-</div>
+          </div>
 
 
 
-          <p  className="product-description"data-testid="product-description">{product.description}</p>
+          <p className="product-description" data-testid="product-description">{product.description}</p>
         </div>
       </div>
     );
