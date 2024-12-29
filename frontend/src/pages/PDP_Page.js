@@ -46,6 +46,7 @@ class PDP_Page extends Component {
           <p className="attribute-name">Price:</p>
           <p className="price-value" data-testid="product-price">{currencySymbol}{convertedPrice}</p>  {/* Added data-testid */}
       
+          <div className='Button-Container'>
           <button
   className={`add-to-cart-button ${isAddToCartDisabled ? 'disabled' : ''}`}
   data-testid="add-to-cart"
@@ -55,7 +56,7 @@ class PDP_Page extends Component {
   ADD TO CART
 </button>
 
-
+</div>
 
 
 

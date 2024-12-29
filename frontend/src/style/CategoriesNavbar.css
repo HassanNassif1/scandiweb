@@ -1560,6 +1560,8 @@ img.main-image {
 
 /* For Galaxy A05s in Portrait mode */
 @media (min-width: 0px) and (max-width: 390px) {
+
+
   p {
     font-size: 20px;
   }
@@ -1644,8 +1646,10 @@ img.main-image {
   }
 
   .cart-box {
-    margin-left: -28%;
+    margin-left: -35%;
     margin-top: 6%;
+    min-width: auto;
+    min-height:auto;
   }
 
   img.main-image {
@@ -1663,7 +1667,7 @@ img.main-image {
 
   .product-images-container {
     min-width: 100%;
-    margin-left: 12%;
+    margin-left: 3%;
   }
   .price-value{
     font-size:22px;
@@ -1685,17 +1689,21 @@ img.main-image {
     background-color: #FFFFFF;
     color: #1D1F22;
   }
-
+.product-description{
+  margin-left:18%;
+}
   .product-info {
     margin-left: 2%;
     margin-top: 5%;
     padding: 60px;
   }
-
+.Button-Container{
+  width:30vh;
+}
   .add-to-cart-button {
-    width:Fixed (292px);
+  
   height: Hug (52px);
-    margin-left: 14%;
+    margin-left: 10%;
     /* Fixed height */
     background-color: #5ECE7B;
     color: #FFFFFF;
@@ -1711,7 +1719,19 @@ img.main-image {
 
 
 
-@media (min-width:390px) and (max-width:450px){
+@media (min-width:390px) and (max-width:500px){
+ 
+  .add-to-cart-button {
+    width:28vh;
+    height: Hug (52px);
+   margin-left:15%;
+    /* Fixed height */
+    background-color: #5ECE7B;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
   .currency-selector {
     margin-left: 50%;
     top: 40%;
@@ -1739,8 +1759,10 @@ img.main-image {
     top:8.5%;
    }
    .cart-box{
-    left:22%;
+    left:16%;
+ 
     margin-top:6%;
+   
    }
    a.category {
     font-size: 13px;
@@ -1843,17 +1865,7 @@ margin-right:10%;
   padding:60px;
 }
 
-.add-to-cart-button {
-  width:Fixed (292px);
-  height: Hug (52px);
-  margin-left:14%;
-  /* Fixed height */
-  background-color: #5ECE7B;
-  color: #FFFFFF;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
+
  .attribute-values-PDP{
   padding:20px;
  }
@@ -1883,6 +1895,20 @@ margin-right:10%;
     left:82%;
   }
 }
+@media (min-width:500px) and (max-width:770px){
+ div.product-info{
+  margin-left:25%;
+ }
+
+}
+@media (min-width:770px) and (max-width:800px){
+  div.product-info{
+   margin-left:25%;
+  }
+  .product-images-container{
+    margin-left:0%;
+  }
+ }
 @media (min-width:490px) and (max-width:769px) {
   .product-box {
       max-width: 100%;
