@@ -825,7 +825,16 @@ const GreenShoppingImageURL='https://www.figma.com/design/Keu02BI0W7eQpWn0AvqnVK
                                         this.incrementQuantity(item);
                                       }}
                                     >
-                                      +
+                          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+ 
+  <path d="M1 5H9" stroke="#1D1F22" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  
+  <path d="M5 1V9" stroke="#1D1F22" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
+
+
                                     </button>
                                     <span className="quantity-value" data-testid="cart-item-amount">{item.quantity}</span>
                                     <button
@@ -836,7 +845,10 @@ const GreenShoppingImageURL='https://www.figma.com/design/Keu02BI0W7eQpWn0AvqnVK
                                         this.decrementQuantity(item);
                                       }}
                                     >
-                                      −
+                                     <svg className='decrement'width="10" height="30" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 1H9" stroke="#1D1F22" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
                                     </button>
                                   </div>
                                 </div>

@@ -33,16 +33,12 @@ class PDP_Attributes extends Component {
     };
 
     // Helper function to convert a value to kebab-case for test ids (not for actual values)
-    // Helper function to convert a value to kebab-case for test ids (not for actual values)
-    // Helper function to convert value to test id for attributes
     const toAttributeTestId = (value) => {
-      // Only remove special characters except for '#' and '-' for test ids
       return value
         .replace(/\s+/g, '-')  // Replace spaces with hyphens
         .replace(/[^a-zA-Z0-9\-#]/g, '')
         .replace(/^([a-z])/, (match) => match.toUpperCase());
     };
-
 
     return (
       <div>
@@ -50,17 +46,18 @@ class PDP_Attributes extends Component {
           <div
             key={attrName}
             className="attribute-container"
-            data-testid={`product-attribute-${toKebabCase(attrName)}`} // Kebab-case only for attribute names
+            data-testid={`product-attribute-${toKebabCase(attrName)}`}
           >
             <div className="attribute-item">
-              <p className="attribute-name">{attrName}:</p>
+              <p className="attribute-name" style={{ textTransform: 'uppercase' }}>
+                {attrName}:
+              </p>
               <div className="attribute-values-PDP">
                 {attrName === "Color" ? (
                   attributeMap[attrName].map((value, index) => (
                     <div
                       key={index}
-                      className={`attribute-box ${value === selectedColor ? 'active' : ''} ${value === '#ffffff' || value.toLowerCase() === 'white' ? 'white' : ''
-                        }`}
+                      className={`attribute-box ${value === selectedColor ? 'active' : ''} ${value === '#ffffff' || value.toLowerCase() === 'white' ? 'white' : ''}`}
                       style={{
                         backgroundColor: value,
                         border: value === selectedColor
@@ -82,7 +79,7 @@ class PDP_Attributes extends Component {
                       key={index}
                       className={`size-box ${value === selectedSize ? 'active' : ''}`}
                       onClick={() => setSelectedSize(value)}
-                      data-testid={`product-attribute-size-${toAttributeTestId(value)}`} // Test id for size value, no kebab-case here
+                      data-testid={`product-attribute-size-${toAttributeTestId(value)}`}
                     >
                       {value}
                     </div>
@@ -93,7 +90,7 @@ class PDP_Attributes extends Component {
                       key={index}
                       className={`size-box ${value === selectedCapacity ? 'active' : ''}`}
                       onClick={() => setSelectedCapacity(value)}
-                      data-testid={`product-attribute-capacity-${toAttributeTestId(value)}`} // Test id for capacity value
+                      data-testid={`product-attribute-capacity-${toAttributeTestId(value)}`}
                     >
                       {value}
                     </div>
@@ -104,7 +101,7 @@ class PDP_Attributes extends Component {
                       key={index}
                       className={`size-box ${value === selectedWithUSB3Ports ? 'active' : ''}`}
                       onClick={() => setSelectedWithUSB3Ports(value)}
-                      data-testid={`product-attribute-usb3-${toAttributeTestId(value)}`} // Test id for USB 3 ports value
+                      data-testid={`product-attribute-usb3-${toAttributeTestId(value)}`}
                     >
                       {value}
                     </div>
@@ -115,14 +112,16 @@ class PDP_Attributes extends Component {
                       key={index}
                       className={`size-box ${value === selectedWithTouchID ? 'active' : ''}`}
                       onClick={() => setSelectedWithTouchID(value)}
-                      data-testid={`product-attribute-touchid-${toAttributeTestId(value)}`} // Test id for Touch ID value
+                      data-testid={`product-attribute-touchid-${toAttributeTestId(value)}`}
                     >
                       {value}
                     </div>
                   ))
                 ) : (
                   attributeMap[attrName].map((value, index) => (
-                    <p key={index} data-testid={`product-attribute-${toKebabCase(attrName)}-${toAttributeTestId(value)}`}>{value}</p> // Test id for other attributes
+                    <p key={index} data-testid={`product-attribute-${toKebabCase(attrName)}-${toAttributeTestId(value)}`}>
+                      {value}
+                    </p>
                   ))
                 )}
               </div>

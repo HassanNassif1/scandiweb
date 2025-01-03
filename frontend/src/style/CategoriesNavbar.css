@@ -524,7 +524,7 @@ a:hover {
   margin-top: -12%;
 }
 
-.price-value {
+p.price-value {
   width: 86px;
   height: 46px;
   top: 440px;
@@ -536,7 +536,9 @@ a:hover {
   font-weight: 700;
   line-height: 18px;
   text-align: left;
-  color: #1D1F22;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  
 
 }
 
@@ -645,24 +647,32 @@ opacity: 0px;
 
 
 .attribute-label-Size {
-  font-family: Raleway;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 16px;
-  text-align: left;
+  font-family: Roboto Condensed;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  
   width: 30px;
   height: 16px;
   gap: 0px;
   opacity: 0px;
   margin-top: 20%;
+  
 }
-
+.decrement{
+  margin-top:-10%;
+}
 .attribute-label-capacity {
   font-family: Raleway;
   font-size: 14px;
   font-weight: 400;
   line-height: 16px;
   text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
   width: 30px;
   height: 16px;
   gap: 0px;
@@ -689,11 +699,13 @@ opacity: 0px;
 }
 
 .attribute-label-Options {
-  font-family: Raleway;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 16px;
-  text-align: left;
+  font-family: Roboto Condensed;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
   width: 30px;
   height: 16px;
   gap: 0px;
@@ -719,6 +731,8 @@ opacity: 0px;
   font-weight: 400;
   line-height: 16px;
   text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
   width: 90px;
   height: 16px;
   gap: 0px;
@@ -728,10 +742,13 @@ opacity: 0px;
 
 .attribute-label-USB {
   font-family: Raleway;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 16px;
   text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  
   width: 160px;
   height: 16px;
   gap: 0px;
@@ -742,10 +759,12 @@ opacity: 0px;
 
 .attribute-label-Touch {
   font-family: Raleway;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   line-height: 16px;
   text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
   width: 160px;
   height: 16px;
   gap: 0px;
@@ -982,10 +1001,8 @@ opacity: 0px;
   /* Subtle shadow */
 }
 
-.attribute-name {
-  font-family: Roboto Condensed;
-
-
+p.attribute-name {
+  font-family: 'Roboto Condensed', sans-serif;
   text-align: center;
   width: 50px;
   height: 18px;
@@ -993,16 +1010,18 @@ opacity: 0px;
   margin-left: 4%;
   gap: 0px;
   opacity: 0px;
-  font-family: Roboto Condensed;
   font-size: 18px;
   font-weight: 700;
   line-height: 18px;
-  text-align: center;
+  letter-spacing: -0.6px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-
   display: inline;
+
+  /* Apply vertical elongation */
+  transform: scaleY(1.5); /* Elongate vertically (1.5 times the original height) */
 }
+
 
 .attribute-wrapper {
   margin-top: -5%;
@@ -1112,7 +1131,9 @@ opacity: 0px;
   font-weight: 600;
   line-height: 27px;
   text-align: left;
-
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  
 }
 
 .attribute-item {
