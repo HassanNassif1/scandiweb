@@ -1,6 +1,15 @@
 body {
   overflow-x: hidden;
   margin: 0;
+  font-size: 1rem;
+}
+html {
+  font-size: 16px; /* Base size */
+}
+
+
+h1 {
+  font-size: 2rem; /* Equals 32px */
 }
 
 .background-overlay {
@@ -155,12 +164,15 @@ a:hover {
   gap: 0px;
   opacity: 0px;
 
+ 
   font-family: Raleway;
   font-size: 42px;
   font-weight: 400;
   line-height: 67.2px;
   text-align: left;
-  color: #1D1F22;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  
 
 }
 
@@ -347,17 +359,15 @@ a:hover {
 
 .product-price {
 
+
   font-family: Raleway;
   font-size: 18px;
   font-weight: 400px;
   line-height: 28.8px;
   text-align: right;
-  width: 58px;
-  height: 29px;
-  gap: 0px;
-  opacity: 0px;
-  color: #1D1F22;
-
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  
 
 }
 
@@ -582,6 +592,7 @@ img {
 img.main-image {
   width: 100%;
   height: 100%;
+  
 }
 
 .thumbnail-container {
@@ -608,8 +619,14 @@ img.main-image {
 }
 
 .main-image {
-  width: 100%;
-  height: 100%;
+ 
+  width: 1285.76px;
+height: 523.45px;
+top: -45.45px;
+left: -23.96px;
+gap: 0px;
+opacity: 0px;
+
 }
 
 
@@ -1294,7 +1311,7 @@ img.main-image {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color:#000000BA;
   color: #FFFFFF;
 
   padding: 10px;
@@ -1302,16 +1319,20 @@ img.main-image {
   opacity: 0px;
   height: 32px;
   width: 32px;
-  border: 1.5px solid #FFFFFF
+  border: 1.5px solid #FFFFFF;
 }
 
-.prev-button {
-  left: 0;
+
+.next-arrow{
+margin-top:-25%;
+margin-left:12%;
+
+}
+.previous-arrow{
+  margin-top:-25%;
+  margin-left:-20%;
 }
 
-.next-button {
-  right: 0;
-}
 
 .arrow-container {
   position: absolute;

@@ -36,8 +36,14 @@ class PDP_Page extends Component {
           </div>
           <div className="main-image-container">
             <img src={images[selectedImageIndex]} alt={product.name} className="main-image" />
-            <button className="prev-button" onClick={handlePrevImage}>&#10094;</button>
-            <button className="next-button" onClick={handleNextImage}>&#10095;</button>
+            <button className="prev-button" onClick={handlePrevImage}><svg  className='previous-arrow' width="10" height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M8.96873 1.16618L1.53955 8.58748L8.96873 16.0088" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button>
+            <button className="next-button" onClick={handleNextImage}><svg className='next-arrow' width="10"  height="17" viewBox="0 0 10 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1 1.09158L8.5 8.58363L1 16.0757" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+</button>
           </div>
         </div>
         <div className="product-info">

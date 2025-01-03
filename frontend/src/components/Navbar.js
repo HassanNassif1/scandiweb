@@ -5,7 +5,8 @@ import withRouter from '../navigation/withRouter.js';
 
 import { withApollo } from '@apollo/react-hoc';
 import iconCart from '../assets/th.png'
-import greenShoppingImage from '../assets/greenshopping.jpg'
+import BrandIcon from '../assets/BrandIcon.png'
+// import greenShoppingImage1 from '../assets/greenshopping1.png'
 import ClipLoader from 'react-spinners/ClipLoader';
 import { css } from '@emotion/react';
 import { toast } from 'react-toastify';
@@ -713,7 +714,7 @@ mutation CreateOrder(
 
 
 
-
+const GreenShoppingImageURL='https://www.figma.com/design/Keu02BI0W7eQpWn0AvqnVK/Full-Stack-Test-Designs?node-id=150-357&t=Fjv9jHdWKqUq06MI-4';
 
     const { selectedCurrency } = this.context;
     const { categories, activeCategoryName } = this.props;
@@ -914,7 +915,7 @@ mutation CreateOrder(
               })}
             </ul>
 
-            <img src={greenShoppingImage} alt="Shop Icon" className="green-shopping-image" />
+            <img src={BrandIcon} alt="Shop Icon" className="green-shopping-image" />
             {currencies.length > 0 && (
               <CurrencySelector
                 currencies={currencies}
