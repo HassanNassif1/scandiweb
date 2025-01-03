@@ -105,18 +105,30 @@ class PDP extends Component {
   handleImageClick = (index) => {
     this.setState({ selectedImageIndex: index });
   };
-
   handlePrevImage = () => {
-    this.setState((prevState) => ({
-      selectedImageIndex: prevState.selectedImageIndex === 0 ? this.state.product.image.length - 1 : prevState.selectedImageIndex - 1,
-    }));
+    this.setState((prevState) => {
+      const images = Array.isArray(this.state.product.image)
+        ? this.state.product.image
+        : JSON.parse(this.state.product.image || '[]');
+      const newIndex =
+        (prevState.selectedImageIndex - 1 + images.length) % images.length; // Wrap around using modulo
+      return { selectedImageIndex: newIndex };
+    });
   };
-
+  
   handleNextImage = () => {
-    this.setState((prevState) => ({
-      selectedImageIndex: prevState.selectedImageIndex === this.state.product.image.length - 1 ? 0 : prevState.selectedImageIndex + 1,
-    }));
+    this.setState((prevState) => {
+      const images = Array.isArray(this.state.product.image)
+        ? this.state.product.image
+        : JSON.parse(this.state.product.image || '[]');
+      const newIndex = (prevState.selectedImageIndex + 1) % images.length; // Wrap around using modulo
+      return { selectedImageIndex: newIndex };
+    });
   };
+  
+  
+  
+
 
   convertPrice = (price) => {
     const { selectedCurrency, currencyRates } = this.context;
@@ -243,7 +255,6 @@ class PDP extends Component {
 
   render() {
     const {
-      totalPrice,
       selectedImageIndex,
       selectedColor,
       selectedSize,
@@ -257,7 +268,8 @@ class PDP extends Component {
       error,
       errorCategories,
     } = this.state;
-
+  
+    // Show loading spinner if data is being fetched
     if (loading || loadingCategories) {
       return (
         <div className="loading-spinner-container">
@@ -265,31 +277,48 @@ class PDP extends Component {
         </div>
       );
     }
-
+  
+    // Handle errors for fetching product or categories
     if (error) {
       return <p>Error fetching product details: {error.message}</p>;
     }
-
+  
     if (errorCategories) {
       return <p>Error fetching categories: {errorCategories.message}</p>;
     }
-
+  
+    // If no product found, show a message
     if (!product) {
       return <p>No product found.</p>;
     }
-
-    const images = JSON.parse(product.image || '[]');
-
+  
+    // Parse the product images (assuming the images are stored as a JSON string)
+    const images = Array.isArray(product.image)
+    ? product.image
+    : typeof product.image === 'string'
+    ? JSON.parse(product.image)
+    : [];
+    console.log('Images:', images);
+    console.log('Selected Image Index:', selectedImageIndex);
+      
+  
+    // If images are not available, show a message
+    if (images.length === 0) {
+      return <p>No images available for this product.</p>;
+    }
+  
     return (
       <>
+        {/* Navbar component */}
         <Navbar
           categories={categories}
-          activeCategoryName={this.state.product.category.name.toLowerCase()}
+          activeCategoryName={product.category.name.toLowerCase()}
           handleCategoryClick={(categoryId) => this.props.navigate(`/${categoryId.toLowerCase()}`)}
-          isCartOpen={this.state.isCartOpen}      // Pass the state to Navbar
-          toggleCart={this.toggleCart}             // Pass the toggle function to Navbar
+          isCartOpen={this.state.isCartOpen} // Pass the cart state
+          toggleCart={this.toggleCart} // Pass the toggleCart function
         />
-
+  
+        {/* PDP Page */}
         <PDP_Page
           product={product}
           images={images}
@@ -313,13 +342,15 @@ class PDP extends Component {
               setSelectedWithTouchID={(touchID) => this.setState({ selectedWithTouchID: touchID })}
             />
           }
-          convertedPrice={this.convertPrice(product.price)}
-          currencySymbol={this.context.selectedCurrency.symbol}
-          isAddToCartDisabled={this.isAddToCartDisabled()}
+          convertedPrice={this.convertPrice(product.price)} // Convert price based on currency context
+          currencySymbol={this.context.selectedCurrency.symbol} // Show the correct currency symbol
+          isAddToCartDisabled={this.isAddToCartDisabled()} // Check if Add to Cart button should be disabled
         />
       </>
     );
   }
+  
+  
 
 
 }
