@@ -714,7 +714,6 @@ mutation CreateOrder(
 
 
 
-const GreenShoppingImageURL='https://www.figma.com/design/Keu02BI0W7eQpWn0AvqnVK/Full-Stack-Test-Designs?node-id=150-357&t=Fjv9jHdWKqUq06MI-4';
 
     const { selectedCurrency } = this.context;
     const { categories, activeCategoryName } = this.props;
@@ -800,7 +799,7 @@ const GreenShoppingImageURL='https://www.figma.com/design/Keu02BI0W7eQpWn0AvqnVK
                               <div className="cart-details-box">
                                 <p className="product-name-cart">{item.name}</p>
                                 <p className={item.name === 'Nike Air Huarache Le' ? 'product-price-cart-exception' : 'product-price-cart'}>
-                                  {convertedPrice} {selectedCurrency.symbol}
+                                   {selectedCurrency.symbol}{convertedPrice}
                                 </p>
 
                                 {parsedAttributes && (
@@ -861,7 +860,7 @@ const GreenShoppingImageURL='https://www.figma.com/design/Keu02BI0W7eQpWn0AvqnVK
 
                     <p className="totalValueContainer">
                       <span><b>Total:</b></span>
-                      <span data-testid="cart-total">{this.context.convertPrice(localStorage.getItem('totalprice'))} {this.context.selectedCurrency.symbol}</span>
+                      <span data-testid="cart-total">{this.context.selectedCurrency.symbol}{this.context.convertPrice(localStorage.getItem('totalprice'))} </span>
                     </p>
 
                     <div className="Place-Order-Container">
