@@ -45,6 +45,7 @@ const updateQuantity = (item, increment) => {
 
 class Navbar extends Component {
   static contextType = CurrencyContext; // Define context type
+  
   constructor(props) {
     super(props);
     // Fetch the active category from localStorage
