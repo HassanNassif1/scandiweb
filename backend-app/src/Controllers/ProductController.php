@@ -7,6 +7,7 @@ use App\Repositories\CategoryRepository;
 class ProductController {
     private $repository;
     private $productModel;
+    private $categoryRepository;
     public function __construct() {
         // Initialize the ProductRepository to interact with the database
         $this->repository = new ProductRepository();
