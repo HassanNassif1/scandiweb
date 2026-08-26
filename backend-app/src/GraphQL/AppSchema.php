@@ -7,16 +7,16 @@ use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Schema as GraphQLSchema;
 use App\Controllers\CategoryController;
 use App\Controllers\ProductController;
-use App\Controllers\OrderController;  // Add the OrderController
-use App\Controllers\CurrencyController; // Add the CurrencyController
+use App\Controllers\OrderController;
+use App\Controllers\CurrencyController;
 
 class AppSchema {
     public static function getSchema() {
         // Create controllers for fetching data
         $categoryController = new CategoryController();
         $productController = new ProductController();
-        $currencyController = new CurrencyController(); // Instantiate the CurrencyController
-        $orderController = new OrderController(); // Instantiate the OrderController
+        $currencyController = new CurrencyController();
+        $orderController = new OrderController();
 
         // Define the category type to be used in products
         $categoryType = new ObjectType([
@@ -57,12 +57,19 @@ class AppSchema {
                 'attributes' => [
                     'type' => Type::listOf($attributeType),
                     'resolve' => function ($product) {
+                        // Handle JSONB string from PostgreSQL
                         $attributes = isset($product['attributes']) ? json_decode($product['attributes'], true) : [];
                         return is_array($attributes) ? $attributes : [];
                     },
                 ],
-                'image' => ['type' => Type::string()],
-                'category_id' => ['type' => Type::int()], // Ensure this is included
+                'image' => [
+                    'type' => Type::string(), // Type::string because DB holds a JSON string
+                    'resolve' => function ($product) {
+                        // If image is already an array, encode it; otherwise return as is
+                        return isset($product['image']) ? $product['image'] : null;
+                    },
+                ],
+                'category_id' => ['type' => Type::int()],
                 'category' => [
                     'type' => $categoryType,
                     'resolve' => function ($product) use ($categoryController) {
@@ -73,7 +80,6 @@ class AppSchema {
                 ],
             ],
         ]);
-        
 
         $orderType = new ObjectType([
             'name' => 'Order',
@@ -89,11 +95,36 @@ class AppSchema {
         ]);
 
         // Define the query fields
+              // Define the query fields
         $query = [
-          'products' => [
+            'products' => [
+                'type' => Type::listOf($productType),
+                'args' => [
+                    'category_name' => ['type' => Type::string()],
+                ],
+                'resolve' => function ($root, $args) use ($productController) {
+                    return isset($args['category_name']) && !empty($args['category_name'])
+                        ? $productController->getProductsByCategoryName($args['category_name'])
+                        : $productController->getProducts();
+                },
+            ],
+
+            // ADD THIS BLOCK BACK IN
+    'productsByCategory' => [
     'type' => Type::listOf($productType),
-    'resolve' => function () use ($productController) {
-        return $productController->getProducts(); // Make sure this includes category_id
+    'args' => [
+        'categoryName' => ['type' => Type::string()], // Accept camelCase
+        'category_name' => ['type' => Type::string()], // Accept snake_case (to match frontend bug)
+    ],
+    'resolve' => function ($root, $args) use ($productController) {
+        // Check which variable name is actually provided
+        $name = $args['categoryName'] ?? $args['category_name'] ?? null;
+
+        if ($name) {
+            return $productController->getProductsByCategoryName($name);
+        }
+        
+        return [];
     },
 ],
 
@@ -103,25 +134,14 @@ class AppSchema {
                     return $categoryController->getCategories();
                 },
             ],
-         'productsByCategory' => [
-    'type' => Type::listOf($productType),
-    'args' => [
-        'category_name' => ['type' => Type::string()],
-    ],
-    'resolve' => function ($root, $args) use ($productController) {
-        return isset($args['category_name'])
-            ? $productController->getProductsByCategoryName($args['category_name'])
-            : [];
-    },
-],
-
 
             'currencies' => [
                 'type' => Type::listOf($currencyType),
                 'resolve' => function () use ($currencyController) {
-                    return $currencyController->getAllCurrencies();  // Ensure this calls the correct controller method
+                    return $currencyController->getAllCurrencies();
                 },
             ],
+
             'productById' => [
                 'type' => $productType,
                 'args' => [
@@ -135,7 +155,6 @@ class AppSchema {
                 },
             ],
         ];
-        
 
         // Define mutations (createOrder)
         $mutation = [
@@ -150,7 +169,7 @@ class AppSchema {
                     'quantity' => ['type' => Type::nonNull(Type::int())],
                 ],
                 'resolve' => function ($root, $args) use ($orderController) {
-                    return $orderController->createOrder(  // Use the OrderController instead of the model
+                    return $orderController->createOrder(
                         $args['product_id'],
                         $args['product_name'],
                         $args['description'],
